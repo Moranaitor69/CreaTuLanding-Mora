@@ -1,0 +1,54 @@
+/* Estilos generales del navbar */
+.navbar {
+  background: linear-gradient(90deg, #1e1e2f, #2c2c54); 
+  padding: 12px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f1f1f1 !important;
+  letter-spacing: 1px;
+}
+
+
+.nav-link {
+  font-size: 1rem;
+  color: #dcdcdc !important;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #ff4d6d !important;  /* resalta en hover */
+  transform: scale(1.05);
+}
+
+/* Carrito */
+.cart-widget {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-widget svg {
+  font-size: 1.8rem;
+  color: #ffffff;
+  transition: transform 0.2s ease;
+}
+
+.cart-widget svg:hover {
+  transform: scale(1.2);
+  color: #ff4d6d;
+}
+
+/* Burbuja del carrito */
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: #ff4d6d !important;
+  font-size: 0.7rem;
+  padding: 4px 6px;
+  border-radius: 50%;
+}

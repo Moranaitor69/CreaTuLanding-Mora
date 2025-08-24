@@ -1,0 +1,26 @@
+.cart-widget {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-icon {
+  font-size: 2rem;
+  color: white;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;   /* sube el circulito */
+  right: -8px; /* lo pone a la derecha */
+  background-color: red;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
