@@ -24,11 +24,13 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  padding: 0;
   min-width: 320px;
   min-height: 100vh;
+  display: block;      /* quitar el flex que te rompe el layout */
+  overflow-x: hidden;  /* elimina el scroll horizontal */
 }
+
 
 h1 {
   font-size: 3.2em;
