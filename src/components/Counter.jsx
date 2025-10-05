@@ -1,39 +1,44 @@
-import { useState } from 'react'
-import Button from 'react-bootstrap/Button'
+import { useState, useEffect } from "react";
+import Button from "react-bootstrap/Button";
 import "./Counter.css";
 
-function Counter({ initial = 1, stock = 10, onAdd }) {
-  const [count, setCount] = useState(initial)
+function Counter({ ini = 0, stocks = 1000, onAdd }) {
+  const [count, setCount] = useState(ini);
+
+  // Si cambia el valor inicial desde el padre, sincronizamos
+  useEffect(() => {
+    setCount(ini);
+  }, [ini]);
 
   const handleAdd = () => {
-    if (count < stock) {
-      setCount(count + 1)
-    }
-  }
+    setCount((c) => Math.min(stocks, c + 1));
+  };
 
   const handleSub = () => {
-    if (count > 1) {
-      setCount(count - 1)
-    }
-  }
+    setCount((c) => Math.max(0, c - 1));
+  };
 
   const handleConfirm = () => {
-    onAdd?.(count) 
-    console.log(`Agregado al carrito: ${count} unidades`)
-  }
+    if (count <= 0) return;           // no agregamos 0
+    onAdd?.(count);
+    setCount(0);                      // 🔁 reinicia a 0 después de agregar
+    // Si prefieres volver al inicial: setCount(ini);
+  };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', maxWidth: '200px' }}>
-      <p style={{ textAlign: 'center', margin: 0 }}>{count}</p>
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '8px' }}>
-        <Button onClick={handleSub} variant="danger">-</Button>
-        <Button onClick={handleAdd} variant="success">+</Button>
+    <div style={{ display: "flex", flexDirection: "column", gap: 8, maxWidth: 200 }}>
+      <p style={{ textAlign: "center", margin: 0 }}>{count}</p>
+
+      <div style={{ display: "flex", justifyContent: "center", gap: 8 }}>
+        <Button onClick={handleSub} variant="danger" disabled={count <= 0}>-</Button>
+        <Button onClick={handleAdd} variant="success" disabled={count >= stocks}>+</Button>
       </div>
-      <Button onClick={handleConfirm} variant="primary">
+
+      <Button onClick={handleConfirm} variant="primary" disabled={count <= 0}>
         Agregar al carrito
       </Button>
     </div>
-  )
+  );
 }
 
-export default Counter
+export default Counter;

@@ -1,12 +1,10 @@
-
-
 #root {
   width: 100%;
   margin: 0;
   padding: 0;
 }
 
-/* Contenedor centrado para los productos */
+
 .container {
   max-width: 1200px;   
   margin: 0 auto;      
@@ -51,16 +49,5 @@
   color: #888;
 }
 
-.btn-secondary {
-  background-color: #70005f !important;
-  border-color: #70005f !important;
-  color: #fff !important;
-}
 
-.btn-secondary:hover,
-.btn-secondary:focus {
-  background-color: #520045 !important;
-  border-color: #520045 !important;
-  color: #fff !important;
-}
 
